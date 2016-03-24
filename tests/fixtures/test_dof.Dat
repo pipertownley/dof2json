@@ -1,1 +1,7 @@
-[]
+  CURRENCY DATE = 11/08/15
+                                     LATITUDE    LONGITUDE     OBSTACLE       AGL  AMSL LT ACC MAR FAA       ACTION
+ORS#      V CO ST CITY            DEG MIN SEC   DEG MIN SEC   TYPE           HT    HT     H V IND STUDY           JDATE
+-------------------------------------------------------------------------------------------------------------------------
+06-020063 O US CA SAN DIEGO        32 33 27.24N 116 58 14.27W STACK        1 00071 00566 N 5 E N 2007AWP05884OE C 2009272 
+06-020056 O US CA SAN DIEGO        32 33 29.20N 116 59 06.08W TOWER        1 00065 00576 N 5 E N 2008AWP01599OE C 2009272 
+06-037251 O US CA SAN DIEGO        32 33 41.83N 117 02 05.88W TOWER        1 00035 00518 N 1 A N 2010AWP07388OE A 2014141 
