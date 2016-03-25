@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 
-import glob
 import json
-import sys
 
 FIELD_MAP = (
     # field name, column number(s)
@@ -57,22 +55,27 @@ class DigitalObstacle(object):
 
 
 def strip_headers(x):
+    x = list(x)
     return x[4:]
 
 
 if __name__ == '__main__':
+    import glob
+    import sys
+
     files = []
     json_out = []
-    try:
+    if len(sys.argv) > 1:
         for arg in sys.argv[1:-1]:
             for fn in glob.glob(arg):
                 files.append(fn)
         files = list(set(files))
-    except:
-        raise Exception("You must specify a DOF file, list of files, or wildcards to process.")
+    else:
+        print "no args specified. supply on or more infiles, or wildcard. The last argument should be the  outfile."
+        exit()
     for fn in files:
         f = open(fn, 'r')
-        f = strip_headers(list(f))
+        f = strip_headers(f)
         for ln in f:
             do = DigitalObstacle(ln)
             json_out.append(do.data)
