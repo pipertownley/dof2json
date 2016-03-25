@@ -1,8 +1,8 @@
 import json
 from dof2json import dof2json
 
-DOF_FILE = './fixtures/test_dof.Dat'
-JSON_FILE = './fixtures/test_dof.json'
+DOF_FILE = './tests/fixtures/test_dof.Dat'
+JSON_FILE = './tests/fixtures/test_dof.json'
 
 def test_strip_headers():
     f = open(DOF_FILE, 'r')
