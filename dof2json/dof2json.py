@@ -45,7 +45,7 @@ class DigitalObstacle(object):
             if len(cols) == 2:
                 data[key] = line[cols[0]-1:cols[1]].strip()
             elif len(cols) == 1:
-                data[key] = line[cols[0]].strip()
+                data[key] = line[cols[0]-1].strip()
             else:
                 raise Exception("Parse error: field map columns must be either a single int or an int range. ie., '3-4' ")
         return data
@@ -71,7 +71,7 @@ if __name__ == '__main__':
                 files.append(fn)
         files = list(set(files))
     else:
-        print "no args specified. supply on or more infiles, or wildcard. The last argument should be the  outfile."
+        print "No args specified. Supply one or more infiles, or wildcard. The last argument should be the outfile."
         exit()
     for fn in files:
         f = open(fn, 'r')
@@ -80,7 +80,7 @@ if __name__ == '__main__':
             do = DigitalObstacle(ln)
             json_out.append(do.data)
     try:
-        fo = open(sys.argv[-1],'w')
+        fo = open(sys.argv[-1], 'w')
         fo.write(json.dumps(json_out))
         fo.close()
     except Exception as err:
