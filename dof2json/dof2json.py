@@ -5,7 +5,7 @@ import json
 FIELD_MAP = (
     # field name, column number(s)
     ('ors', '1-2'),
-    ('obstacle_number', 4-9),
+    ('obstacle_number', '4-9'),
     ('verification_status', '11'),
     ('country', '13-14'),
     ('state', '16-17'),
@@ -42,7 +42,7 @@ class DigitalObstacle(object):
             try:
                 cols = [int(col) for col in columns.split('-')]
             except AttributeError:
-                raise Exception("Parse error: field map columns must me quotes strings.")
+                raise Exception("Parse error: field map column {} must be quoted strings.".format(cols))
             if len(cols) == 2:
                 data[key] = line[cols[0]-1:cols[1]].strip()
             elif len(cols) == 1:
