@@ -4,7 +4,8 @@ import json
 
 FIELD_MAP = (
     # field name, column number(s)
-    ('ors', '1-9'),
+    ('ors', '1-2'),
+    ('obstacle_number', 4-9),
     ('verification_status', '11'),
     ('country', '13-14'),
     ('state', '16-17'),
@@ -17,17 +18,17 @@ FIELD_MAP = (
     ('long_min', '53-54'),
     ('long_sec', '56-60'),
     ('long_hemi', '61'),
-    ('obstacle_type', '63-74'),
-    ('quantity', '76'),
-    ('height_agl', '78-82'),
-    ('height_amsl', '84-88'),
-    ('lighting', '90'),
-    ('horiz_accuracy', '92'),
-    ('vert_accuracy', '94'),
-    ('mark_indicator', '96'),
-    ('faa_study_number', '98-111'),
-    ('action', '113'),
-    ('date_of_action', '115-121')
+    ('obstacle_type', '63-80'),
+    ('quantity', '82'),
+    ('height_agl', '84-88'),
+    ('height_amsl', '90-94'),
+    ('lighting', '96'),
+    ('horiz_accuracy', '98'),
+    ('vert_accuracy', '100'),
+    ('mark_indicator', '102'),
+    ('faa_study_number', '104-117'),
+    ('action', '119'),
+    ('date_of_action', '121-127')
 )
 
 class DigitalObstacle(object):
