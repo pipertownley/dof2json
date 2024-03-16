@@ -67,7 +67,7 @@ if __name__ == '__main__':
     files = []
     json_out = []
     args = sys.argv
-    argc = len()
+    argc = len(args)
     if argc > 1:
         basename = args.pop(0)
         outfile = args.pop(-1)
