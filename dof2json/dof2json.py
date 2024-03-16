@@ -66,13 +66,17 @@ if __name__ == '__main__':
 
     files = []
     json_out = []
-    if len(sys.argv) > 1:
+    args = sys.argv
+    argc = len()
+    if argc > 1:
+        basename = args.pop(0)
+        outfile = args.pop(-1)
         for arg in sys.argv[1:-1]:
             for fn in glob.glob(arg):
                 files.append(fn)
-        files = list(set(files))
+        files = list(set(files)) # dedup
     else:
-        print "No args specified. Supply one or more infiles, or wildcard. The last argument should be the outfile."
+        print("No args specified. Supply one or more infiles, or wildcard. The last argument should be the outfile.")
         exit()
     for fn in files:
         f = open(fn, 'r')
@@ -81,12 +85,8 @@ if __name__ == '__main__':
             do = DigitalObstacle(ln)
             json_out.append(do.data)
     try:
-        fo = open(sys.argv[-1], 'w')
+        fo = open(outfile, 'w')
         fo.write(json.dumps(json_out))
         fo.close()
     except Exception as err:
         raise err
-
-
-
-
