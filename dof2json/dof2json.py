@@ -31,7 +31,7 @@ FIELD_MAP = (
     ('date_of_action', '121-127')
 )
 
-class DigitalObstacle(object):
+class DigitalObstacleParser(object):
     def __init__(self, line, field_map=FIELD_MAP):
         self.field_map = field_map
         self.data = self._parse(line)
@@ -58,35 +58,3 @@ class DigitalObstacle(object):
 def strip_headers(x):
     x = list(x)
     return x[4:]
-
-
-if __name__ == '__main__':
-    import glob
-    import sys
-
-    files = []
-    json_out = []
-    args = sys.argv
-    argc = len(args)
-    if argc > 1:
-        basename = args.pop(0)
-        outfile = args.pop(-1)
-        for arg in sys.argv[1:-1]:
-            for fn in glob.glob(arg):
-                files.append(fn)
-        files = list(set(files)) # dedup
-    else:
-        print("No args specified. Supply one or more infiles, or wildcard. The last argument should be the outfile.")
-        exit()
-    for fn in files:
-        f = open(fn, 'r')
-        f = strip_headers(f)
-        for ln in f:
-            do = DigitalObstacle(ln)
-            json_out.append(do.data)
-    try:
-        fo = open(outfile, 'w')
-        fo.write(json.dumps(json_out))
-        fo.close()
-    except Exception as err:
-        raise err

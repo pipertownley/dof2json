@@ -20,6 +20,6 @@ def test_dof2json():
     f = open(DOF_FILE, 'r')
     f = dof2json.strip_headers(f)
     for line in f:
-        do = dof2json.DigitalObstacle(line)
+        do = dof2json.DigitalObstacleParser(line)
         json_out.append(json.loads(do.to_json()))
-    assert cmp(json_list, json_out) == 0
+    assert (json_list == json_out)
